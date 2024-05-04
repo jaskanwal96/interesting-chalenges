@@ -45,12 +45,13 @@ const startSandfall = (row: number, col: number) => {
   let colInit = col
   matrix.value[row][col] = true
   let customInterval = setInterval(() => {
-    console.log(rowInit, colInit)
     if (colInit < props.height - 1) {
       if (!matrix.value[rowInit][colInit + 1]) {
         matrix.value[rowInit][colInit] = false
         matrix.value[rowInit][colInit + 1] = true
         colInit++
+      } else {
+        clearInterval(customInterval)
       }
     } else {
       clearInterval(customInterval)
@@ -61,26 +62,25 @@ const startSandfall = (row: number, col: number) => {
 init()
 </script>
   
-<style scoped lang="scss">
+<style scoped lang="css">
 .sand-container {
   position: absolute;
   display: flex;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
-  .cell {
+}
+.cell {
     width: 10px;
     height: 10px;
-    border: 0.5px solid black;
+    border: 0.5px solid white;
   }
-  .filled {
-    background-color: black;
-  }
-  .lol {
-    position: fixed;
-    bottom: 0;
-  }
+.filled {
+  background-color: white;
+}
+.lol {
+  position: fixed;
+  bottom: 0;
 }
 </style>
   
