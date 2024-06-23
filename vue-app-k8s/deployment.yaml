@@ -5,7 +5,7 @@ metadata:
   name: sunny-vue-app
   namespace: sunny-test-namespace
 spec:
-  replicas: 2
+  replicas: 5
   selector:
     matchLabels:
       app: sunny-vue-app
@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: sunny-vue-app
-          image: your-docker-image:latest
+          image: jaskanwal196/sunny-docker-image:latest
           ports:
             - containerPort: 80
