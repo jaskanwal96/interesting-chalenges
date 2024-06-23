@@ -1,0 +1,21 @@
+# deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sunny-vue-app
+  namespace: sunny-test-namespace
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sunny-vue-app
+  template:
+    metadata:
+      labels:
+        app: sunny-vue-app
+    spec:
+      containers:
+        - name: sunny-vue-app
+          image: your-docker-image:latest
+          ports:
+            - containerPort: 80
